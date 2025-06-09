@@ -133,3 +133,16 @@ if uploaded_file is not None:
         file_name="반포고_교육과정편제표.pdf"
     )
 
+import streamlit as st
+import requests
+import io
+
+st.title("MBTI 기반 교육과정 설계 프로그램")
+
+# 깃허브 PDF 파일 불러오기
+url = "https://raw.githubusercontent.com/jiguming7/firstproject//banpo.pdf"
+response = requests.get(url)
+pdf_bytes = io.BytesIO(response.content)
+
+# 다운로드 버튼 생성
+st.download_button("편제표 다운로드 📄", data=pdf_bytes, file_name="반포고_교육과정편제표.pdf")
