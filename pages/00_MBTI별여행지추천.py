@@ -119,3 +119,17 @@ st.markdown("---")
 st.subheader("📥 전체 교육과정 편제표 다운로드")
 with open("2025학년도 반포고등학교 교육과정 편성운영.pdf", "rb") as f:
     st.download_button("편제표 다운로드 📄", data=f, file_name="반포고_교육과정편제표.pdf")
+
+# PDF 파일 업로드 및 다운로드 버튼 생성
+st.markdown("---")
+st.subheader("📥 전체 교육과정 편제표 다운로드")
+
+uploaded_file = st.file_uploader("편제표 파일을 업로드 해주세요 (PDF)", type="pdf")
+
+if uploaded_file is not None:
+    st.download_button(
+        label="업로드한 편제표 다운로드 📄",
+        data=uploaded_file,
+        file_name="반포고_교육과정편제표.pdf"
+    )
+
