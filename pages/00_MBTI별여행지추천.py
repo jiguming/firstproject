@@ -140,7 +140,7 @@ import io
 st.title("MBTI 기반 교육과정 설계 프로그램")
 
 # 깃허브 PDF 파일 불러오기
-url = "https://raw.githubusercontent.com/jiguming7/firstproject//banpo.pdf"
+url = "https://raw.githubusercontent.com/jiguming7/firstproject/banpo.pdf"
 response = requests.get(url)
 pdf_bytes = io.BytesIO(response.content)
 
