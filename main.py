@@ -4,10 +4,18 @@ import streamlit as st
 st.title("🎯 MBTI 맞춤 추천: 수학·과학 명작 영화 🎯")
 
 # 설명 💡
-st.write("당신의 MBTI를 입력하면 🔮 과학과 수학을 사랑하는 당신을 위한 🎥 명작 영화를 추천해드립니다!")
+st.write("당신의 MBTI를 선택하면 🔮 과학과 수학을 사랑하는 당신을 위한 🎥 명작 영화를 추천해드립니다!")
 
-# MBTI 입력 📥
-mbti = st.text_input("당신의 MBTI를 입력하세요 (예: INTP, ENFP 등)").upper()
+# MBTI 목록 📋
+mbti_list = [
+    "INTJ", "INTP", "ENTP", "ENTJ",
+    "INFJ", "INFP", "ENFP", "ENFJ",
+    "ISTJ", "ISFJ", "ESTJ", "ESFJ",
+    "ISTP", "ISFP", "ESTP", "ESFP"
+]
+
+# MBTI 선택 🎯
+mbti = st.selectbox("당신의 MBTI를 선택하세요!", [""] + mbti_list)
 
 # 추천 영화 데이터 🎞️
 movie_recommendations = {
@@ -38,5 +46,3 @@ if mbti:
         st.success(f"🎊 {mbti} 유형에게 추천하는 수학·과학 명작 영화 🎊")
         for movie in recommendations:
             st.write(movie)
-    else:
-        st.warning("😅 죄송해요! 유효한 MBTI를 입력해주세요. 예: INTP, ENFP 등")
